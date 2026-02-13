@@ -104,8 +104,7 @@ export function addChild(self, widget) {
 
 export function removeChild(self, widget) {
 	var child = self.children[widget.id];
-	var constraints = child.constraints;
-	for (var constraint in constraints) self.solver.unconstrain(constraint);
+	for (var constraint in child.constraints) self.solver.unconstrain(constraint);
 	delete self.children[widget.id];
 	self.innerElement.removeChild(widget.element);
 	widget.parent = null;
